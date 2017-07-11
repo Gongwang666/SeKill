@@ -6,8 +6,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
 	@RequestMapping("/toIndex")
 	public String toIndex(){
-		return "index";
+		System.out.println("----------toIndextoIndex----------");
+		return "/user";
 	}
 }
