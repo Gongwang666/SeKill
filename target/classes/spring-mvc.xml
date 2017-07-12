@@ -9,9 +9,9 @@
 
 	<mvc:annotation-driven />
 	
-	<mvc:resources location="/js/" mapping="/js/**" />
+	<!-- <mvc:resources location="/js/" mapping="/js/**" />
 	<mvc:resources location="/css/" mapping="/css/**" />
-	<mvc:resources location="/img/" mapping="/img/**" />
+	<mvc:resources location="/img/" mapping="/img/**" /> -->
 	<mvc:resources location="/assets/css/" mapping="/assets/css/**" />
 	<mvc:resources location="/assets/fonts/" mapping="/assets/fonts/**" />
 	<mvc:resources location="/assets/img/" mapping="/assets/img/**" />

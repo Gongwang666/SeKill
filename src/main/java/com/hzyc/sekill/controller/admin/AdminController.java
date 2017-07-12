@@ -10,4 +10,8 @@ public class AdminController {
 	public String loginPage(){
 		return "/admin/login";
 	}
+	@RequestMapping("/index.do")
+	public String indexPage(){
+		return "/admin/index";
+	}
 }
