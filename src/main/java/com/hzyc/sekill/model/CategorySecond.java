@@ -27,7 +27,7 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name="categorysecond")
-public class CategorySecond {
+public class CategorySecond{
 	private int csid;
 	private String csName;
 	//一级菜单的id，不参与持久化，只是为了表单提交时获取该值
@@ -48,7 +48,7 @@ public class CategorySecond {
 		this.csName = csName;
 	}
 	//设置与一级分类的多对一关联
-	@ManyToOne(targetEntity=Category.class,optional = false,fetch = FetchType.LAZY)
+	@ManyToOne(targetEntity=Category.class,optional = true,fetch = FetchType.LAZY)
 	@JoinColumn(name="cid")
 	public Category getCategory() {
 		return category;

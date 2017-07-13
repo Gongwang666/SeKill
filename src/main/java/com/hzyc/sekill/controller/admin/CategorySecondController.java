@@ -1,6 +1,7 @@
 package com.hzyc.sekill.controller.admin;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -9,68 +10,79 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.hzyc.sekill.controller.BaseController;
 import com.hzyc.sekill.model.Category;
 import com.hzyc.sekill.model.CategorySecond;
 import com.hzyc.sekill.service.CategorySecondService;
 import com.hzyc.sekill.service.CategoryService;
 import com.hzyc.sekill.utils.PageBean;
+import com.hzyc.sekill.utils.PageQueryUtil;
 
 
 @Controller
-@RequestMapping("/adminCategorySecond")
-public class CategorySecondController {
-	private CategorySecondService categorySecondService;
-	private CategoryService categoryService;
+@RequestMapping("/admin/categorySecond")
+public class CategorySecondController extends BaseController{
 	@Resource(name="categorySecondService")
-	public void setCategorySecondService(
-			CategorySecondService categorySecondService) {
-		this.categorySecondService = categorySecondService;
-	}
+	private CategorySecondService categorySecondService;
+	
 	@Resource(name="categoryService")
-	public void setCategoryService(CategoryService categoryService) {
-		this.categoryService = categoryService;
+	private CategoryService categoryService;
+	
+	@RequestMapping("/listAll.do")
+	public ModelAndView listAllCategorySec(PageQueryUtil page) throws Exception{
+		try {
+			Map<String, Object> map = categorySecondService.findCategoryAll(page);
+			return backView("/admin/categorySecond", map);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
-
-	/*//带有分页的列出所有二级分类
-	@RequestMapping("/listAllCategorySecond")
-	public String listAllCategorySecond(Model model,@RequestParam("page") int page){
-		PageBean<CategorySecond> pageBean = categorySecondService.getAllCategorySecond(page);
-		model.addAttribute("pageBean", pageBean);
-		return "forward:/admin/jsp/categorySecond.jsp";
+	//跳转到添加页面
+	@RequestMapping("/addPage.do")
+	public String addPage(Model model) throws Exception{
+		model.addAttribute("cate", categoryService.findCategoryAll());
+		return "/admin/addCategorySecond";
 	}
-	@RequestMapping("/toAddCategorySecondPage")
-	public String toAddPage(Model model,@ModelAttribute(value="categorySecond") CategorySecond categorySecond){
-		List<Category> categoryList = categoryService.getAllCategories();
-		model.addAttribute("categoryList", categoryList);
-		return "forward:/admin/jsp/addCategorySecond.jsp";
+	@RequestMapping("/add.do")
+	public String addCategorySecond(CategorySecond cs) throws Exception{
+		try {
+			categorySecondService.addCategorySecond(cs);
+			return "redirect:/admin/categorySecond/listAll.do";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
-	//添加二级分类
-	@RequestMapping("/add")
-	public String addCategorySecond(Model model,@ModelAttribute("categorySecond") CategorySecond categorySecond){
-		categorySecondService.addCategorySecond(categorySecond);
-		//添加完跳转回原页面
-		return "redirect:/adminCategorySecond/listAllCategorySecond?page=1";
+	//跳转到修改页面
+	@RequestMapping("/editPage.do")
+	public String editPage(Model model,int csid) throws Exception{
+		model.addAttribute("categorySec", categorySecondService.findById(csid));
+		model.addAttribute("categoryList", categoryService.findCategoryAll());
+		return "/admin/editCategorySecond";
 	}
-	@RequestMapping("/delete")
-	public String delCategorySecond(@RequestParam("csid") int csid,@RequestParam(value="page") int page){
-		CategorySecond categorySecond = categorySecondService.findCategorySecond(csid);
-		categorySecondService.deleteCategorySecond(categorySecond);
-		return "redirect:/adminCategorySecond/listAllCategorySecond?page="+page;
+	//修改
+	@RequestMapping("/edit.do")
+	public String editCategorySec(CategorySecond cs) throws Exception{
+		try {
+			categorySecondService.edit(cs);
+			return "redirect:/admin/categorySecond/listAll.do";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
-	//到编辑二级分类的界面
-	@RequestMapping("/toEditCategorySecondPage")
-	public String toEditPage(Model model,@ModelAttribute("categorySecond") CategorySecond categorySecond,@RequestParam("csid") int csid){
-		CategorySecond categorySec = categorySecondService.findCategorySecond(csid);
-		List<Category> categoryList = categoryService.getAllCategories();
-		model.addAttribute("categoryList", categoryList);
-		model.addAttribute("categorySec", categorySec);
-		return "forward:/admin/jsp/editCategorySecond.jsp";
+	//删除
+	@RequestMapping("/remove.do")
+	public String removeCategorySec(CategorySecond cs) throws Exception{
+		try {
+			categorySecondService.delete(cs);
+			return "redirect:/admin/categorySecond/listAll.do";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
-	//编辑二级菜单
-	@RequestMapping("/edit")
-	public String editCategorySecond(@ModelAttribute("categorySecond") CategorySecond categorySecond){
-		categorySecondService.editCategorySecond(categorySecond);
-		return "redirect:/adminCategorySecond/listAllCategorySecond?page=1";
-	}*/
 }

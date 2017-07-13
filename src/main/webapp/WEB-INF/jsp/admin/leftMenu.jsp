@@ -44,9 +44,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						    <li class="admin-parent">
 						      <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><img style="width: 20px;height: 20px" src="assets/img/fenglei.png"> 商品分类管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
 						      <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-						        <li><a href="adminCategory/listAllCategory"><img style="width: 20px;height: 20px" src="assets/img/category.png">一级菜单管理<span class="am-fr am-margin-right"></a></li>
-						        <li><a href="adminCategorySecond/listAllCategorySecond?page=1"><img style="width: 20px;height: 20px" src="assets/img/category-second.png">二级菜单管理<span class="am-fr am-margin-right"></a></li>
-						      	<li><a href="adminProduct/listAllProduct?page=1"><img style="width: 20px;height: 20px" src="assets/img/product.png">商品管理<span class="am-fr am-margin-right"></a></li>
+						        <li><a href="admin/category/listAll.do"><img style="width: 20px;height: 20px" src="assets/img/category.png">一级菜单管理<span class="am-fr am-margin-right"></a></li>
+						        <li><a href="admin/categorySecond/listAll.do"><img style="width: 20px;height: 20px" src="assets/img/category-second.png">二级菜单管理<span class="am-fr am-margin-right"></a></li>
+						      	<li><a href="admin/category/search.do"><img style="width: 20px;height: 20px" src="assets/img/product.png">商品管理<span class="am-fr am-margin-right"></a></li>
 						      </ul>
 						    </li>
 						    <li class="admin-parent">

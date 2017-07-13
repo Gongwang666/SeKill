@@ -1,8 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -10,19 +12,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>一级分类管理</title>
+<title>二级分类管理</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="assets/css/amazeui.css" />
-	<link rel="stylesheet" href="assets/css/core.css" />
-	<link rel="stylesheet" href="assets/css/menu.css" />
-	<link rel="stylesheet" href="assets/css/index.css" />
-	<link rel="stylesheet" href="assets/css/admin.css" />
-	<link rel="stylesheet" href="assets/css/page/typography.css" />
-	<link rel="stylesheet" href="assets/css/page/form.css" />
-	<link rel="stylesheet" href="assets/css/component.css" />
+<link rel="stylesheet" href="assets/css/amazeui.css" />
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="assets/css/core.css" />
+<link rel="stylesheet" href="assets/css/menu.css" />
+<link rel="stylesheet" href="assets/css/index.css" />
+<link rel="stylesheet" href="assets/css/admin.css" />
+<link rel="stylesheet" href="assets/css/page/typography.css" />
+<link rel="stylesheet" href="assets/css/page/form.css" />
 <script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
-	//删除一级分类的模态窗口
+	//删除二级分类的模态窗口
 	$(function() {
 		$("#doc-modal-list").find(".btn-del")
 		.on("click",function() {
@@ -30,9 +34,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					relatedTarget : this,
 					onConfirm : function(options) {
 						var $link = $(this.relatedTarget);
-						var cid = $link.data("id");
+						var csid = $link.data("id");
 						var page = "${pageBean.page}";
-						location.href ="http://localhost:8888/ssh/admin/category/remove.do?cid="+cid;
+						location.href ="http://localhost:8888/ssh/admin/categorySecond/remove.do?csid="+csid;
 						},
 						// closeOnConfirm: false,
 						onCancel : function() {
@@ -40,34 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 		});
 	});
-	//查询时下拉列表的js代码
-	$(function() {
-	    $('#doc-dropdown-js').dropdown({justify: '#doc-dropdown-justify-js'});
-	    var $dropdown = $('#doc-dropdown-js'),
-        data = $dropdown.data('amui.dropdown');
-    	$('#doc-dropdown-toggle').bind('input propertychange',function(e) {
-    		var val = $('#doc-dropdown-toggle').val();
-    		if((/[\u4e00-\u9fa5]+/).test(val)){
-    			$.ajax({
-    			  	url:"admin/category/search.do?str="+val,
-    				type:"post",
-    				dataType:"json",
-    				success:function(data){
-    					$(".am-dropdown-content").html("");
-    					for(var i = 0;i<data.length;i++){
-    						$(".am-dropdown-content").append("<li><a href='admin/category/list.do?name="+data[i].cName+"'>"+data[i].cName+"</a></li>");
-    					}
-    					$dropdown.dropdown('open');
-    		     	 	return false;
-    				}
-    			});
-    		}
-    		
-   		 });
-	  });
-	
 </script>
-
 </head>
 
 <body>
@@ -105,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="am-u-sm-12 am-u-md-6">
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<a href="admin/category/addPage.do" class="am-btn am-btn-default">
+									<a href="admin/categorySecond/addPage.do" class="am-btn am-btn-default">
 										<span class="am-icon-plus"></span> 新增
 									</a>
 									<button type="button" class="am-btn am-btn-default">
@@ -122,13 +99,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						</div>
 
 						<div class="am-u-sm-12 am-u-md-3">
-							<div id="doc-dropdown-js" class="am-input-group am-input-group-sm">
-								    <input type="text" class="am-form-field" id="doc-dropdown-toggle">
-								    <ul class="am-dropdown-content">
-  									</ul>
-								  <span
+							<div class="am-input-group am-input-group-sm">
+								<input type="text" class="am-form-field"> <span
 									class="am-input-group-btn">
-									<button id="search_button" class="am-btn am-btn-default" type="button">搜索</button>
+									<button class="am-btn am-btn-default" type="button">搜索</button>
 								</span>
 							</div>
 						</div>
@@ -143,27 +117,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									class="am-table am-table-striped am-table-hover table-main">
 									<thead>
 										<tr>
-											<th class="table-check"><input type="checkbox" />
-											</th>
+											<th class="table-check"><input type="checkbox" /></th>
 											<th class="table-id">ID</th>
 											<th class="table-title">名称</th>
+											<th class="table-type">所属一级分类ID</th>
+											<th class="table-type">所属一级分类名称</th>
 											<th class="table-set">操作</th>
 										</tr>
 									</thead>
 									<tbody id="doc-modal-list">
 										<c:forEach items="${list }" var="item">
 											<tr>
-												<td><input type="checkbox" />
-												</td>
-												<td>${item.cid }</td>
-												<td><a href="#">${item.cName }</a>
-												</td>
+												<td><input type="checkbox" /></td>
+												<td>${item.csid }</td>
+												<td><a href="#">${item.csName }</a></td>
+												<td>${item.category.cid }</td>
+												<td class="am-hide-sm-only">${item.category.cName }</td>
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
-															<a class="am-btn am-btn-primary" href="admin/category/editPage.do?cid=${item.cid }" ><span class="am-icon-pencil-square-o"></span> 编辑</a>
+															<a class="am-btn am-btn-primary" href="admin/categorySecond/editPage.do?csid=${item.csid }" ><span class="am-icon-pencil-square-o"></span> 编辑</a>
 															<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-del"
-																 data-id="${item.cid }">
+																 data-id="${item.csid }">
 																<span class="am-icon-trash-o"></span> 删除
 															</button>
 														</div>
@@ -178,19 +153,46 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 																	<span class="am-modal-btn" data-am-modal-confirm>确定</span>
 																</div>
 															</div>
-													</div>
+														</div>
 												</td>
 											</tr>
 										</c:forEach>
 									</tbody>
 								</table>
 								<div class="am-cf">
-									共${requestScope.page.totalSize }
-									<%-- <c:choose>
-										<c:when test="${categoryCount == null}">0</c:when>
-										<c:otherwise>${categoryCount}</c:otherwise>
-									</c:choose>  --%>
-									条记录
+									共 ${pageBean.totalCount } 条记录 &nbsp; &nbsp; &nbsp; &nbsp;
+									&nbsp; 共 ${pageBean.totalPage } 页
+									<div class="am-fr">
+										<ul class="am-pagination">
+											<c:choose>
+												<c:when test="${pageBean.page == 1 }">
+													<li class="am-disabled"><a>«</a></li>
+												</c:when>
+												<c:otherwise>
+													<li><a href="adminCategorySecond/listAllCategorySecond?page=${pageBean.page - 1 }">«</a></li>
+												</c:otherwise>
+											</c:choose>
+											<c:forEach begin="1" end="${pageBean.totalPage }"
+												varStatus="i">
+												<c:choose>
+													<c:when test="${i.count != pageBean.page}">
+														<li><a href="adminCategorySecond/listAllCategorySecond?page=${i.count }">${i.count}</a></li>
+													</c:when>
+													<c:otherwise>
+														<li class="am-active"><a>${i.count}</a></li>
+													</c:otherwise>
+												</c:choose>
+											</c:forEach>
+											<c:choose>
+												<c:when test="${pageBean.page == pageBean.totalPage }">
+													<li class="am-disabled"><a>»</a></li>
+												</c:when>
+												<c:otherwise>
+													<li><a href="adminCategorySecond/listAllCategorySecond?page=${pageBean.page + 1 }">»</a></li>
+												</c:otherwise>
+											</c:choose>
+										</ul>
+									</div>
 								</div>
 								<hr />
 								<p>注：.....</p>
@@ -218,12 +220,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- navbar -->
 	<a href="admin-offcanvas"
 		class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu"
-		data-am-offcanvas="{target: '#admin-offcanvas'}">
-		<!--<i class="fa fa-bars" aria-hidden="true"></i>-->
+		data-am-offcanvas="{target: '#admin-offcanvas'}"> <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
 	</a>
 
 	<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
 	<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
+	<script type="text/javascript" src="assets/js/app.js"></script>
 	<script type="text/javascript" src="assets/js/blockUI.js"></script>
 </body>
 

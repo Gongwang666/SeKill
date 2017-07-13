@@ -14,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 
 /**
  * 
@@ -23,7 +25,7 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name="category")
-public class Category {
+public class Category{
 	private int cid;
 	private String cName;
 	private Set<CategorySecond> categorySecondSet =new HashSet<CategorySecond>();
