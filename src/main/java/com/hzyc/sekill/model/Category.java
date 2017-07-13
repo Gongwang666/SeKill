@@ -14,7 +14,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 /**
@@ -28,6 +27,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 public class Category{
 	private int cid;
 	private String cName;
+	private Set<Goods> products = new HashSet<Goods>();
 	private Set<CategorySecond> categorySecondSet =new HashSet<CategorySecond>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -54,6 +54,16 @@ public class Category{
 	}
 	public void setCategorySecondSet(Set<CategorySecond> categorySecondSet) {
 		this.categorySecondSet = categorySecondSet;
+	}
+	//设置与商品的一对多关联
+	@OneToMany(mappedBy="category",cascade = CascadeType.ALL)
+	//根据添加日期的倒序排列
+	//@OrderBy("pDate desc")
+	public Set<Goods> getProducts() {
+		return products;
+	}
+	public void setProducts(Set<Goods> products) {
+		this.products = products;
 	}
 	
 }

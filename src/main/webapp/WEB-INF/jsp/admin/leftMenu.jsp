@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						      <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
 						        <li><a href="admin/category/listAll.do"><img style="width: 20px;height: 20px" src="assets/img/category.png">一级菜单管理<span class="am-fr am-margin-right"></a></li>
 						        <li><a href="admin/categorySecond/listAll.do"><img style="width: 20px;height: 20px" src="assets/img/category-second.png">二级菜单管理<span class="am-fr am-margin-right"></a></li>
-						      	<li><a href="admin/category/search.do"><img style="width: 20px;height: 20px" src="assets/img/product.png">商品管理<span class="am-fr am-margin-right"></a></li>
+						      	<li><a href="admin/goods/listAll.do"><img style="width: 20px;height: 20px" src="assets/img/product.png">商品管理<span class="am-fr am-margin-right"></a></li>
 						      </ul>
 						    </li>
 						    <li class="admin-parent">

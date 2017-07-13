@@ -32,7 +32,7 @@ public class CategorySecond{
 	private String csName;
 	//一级菜单的id，不参与持久化，只是为了表单提交时获取该值
 	private Category category;
-	//private Set<Product> products = new HashSet<Product>();
+	private Set<Goods> products = new HashSet<Goods>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getCsid() {
@@ -57,14 +57,14 @@ public class CategorySecond{
 		this.category = category;
 	}
 	//设置与商品的一对多关联
-	//@OneToMany(mappedBy="categorySecond",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="categorySecond",cascade = CascadeType.ALL)
 	//根据添加日期的倒序排列
-	/*@OrderBy("pDate desc")
-	public Set<Product> getProducts() {
+	@OrderBy("pDate desc")
+	public Set<Goods> getProducts() {
 		return products;
 	}
-	public void setProducts(Set<Product> products) {
+	public void setProducts(Set<Goods> products) {
 		this.products = products;
-	}*/
+	}
 	
 }
