@@ -1,5 +1,7 @@
 package com.hzyc.sekill.controller.admin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.hzyc.sekill.controller.BaseController;
 import com.hzyc.sekill.model.CategorySecond;
+import com.hzyc.sekill.model.Template;
 import com.hzyc.sekill.service.CategorySecondService;
 import com.hzyc.sekill.service.CategoryService;
 import com.hzyc.sekill.utils.PageQueryUtil;
@@ -50,6 +53,17 @@ public class CategorySecondController extends BaseController{
 			e.printStackTrace();
 			throw e;
 		}
+	}
+	@RequestMapping("/addTemplatePage.do")
+	public String addTemplatePage(Model model,int csid){
+			model.addAttribute("csid", csid);
+			model.addAttribute("templates", categorySecondService.findTemplatesById(csid));
+			return "/admin/addTemplate";
+	}
+	@RequestMapping("/addTemplate.do")
+	public String addTemplate(CategorySecond cs){
+		categorySecondService.addTemplate(cs);	
+		return "redirect:/admin/categorySecond/listAll.do";
 	}
 	//跳转到修改页面
 	@RequestMapping("/editPage.do")

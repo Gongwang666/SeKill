@@ -65,11 +65,6 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
             </list>  
         </property>  
     </bean>  
-    <!-- 开启hibernateTemplate，并且为其注入sessionFactory 使用hibernateTemplate 
-	不太方便的就是要获取session的通过getSessionFactory（）方法获取 -->
-	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>
   
     <!-- 配置事务管理器 -->  
     <bean name="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">  

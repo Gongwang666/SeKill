@@ -3,8 +3,10 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -12,7 +14,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>添加商品</title>
+<title>编辑商品信息</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -28,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="assets/css/admin.css" />
 <link rel="stylesheet" href="assets/css/page/typography.css" />
 <link rel="stylesheet" href="assets/css/page/form.css" />
-<link rel="stylesheet" href="assets/css/amazeui.chosen.css"/> 
+<link rel="stylesheet" href="assets/css/amazeui.chosen.css"/>
 </head>
 
 <body>
@@ -77,50 +79,63 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</ul></li>
 							</ul>
 							<div class="am-u-sm-8 am-u-sm-centered">
-								<form action="admin/goods/add.do" class="am-form" id="doc-vld-msg" data-am-validator
-									method="post" enctype="multipart/form-data" name="goods">
+								<form action="adminProduct/edit" class="am-form"
+									method="post" enctype="multipart/form-data"
+									name="goods">
 									<fieldset>
 										<legend>添加商品</legend>
+										<input name="gid" type="hidden"
+											value="${goods.gid }" />
 										<div class="am-form-group">
 											<label for="doc-vld-name-2">商品名称：</label>
 											<input name="gname" type="text" id="doc-vld-name-2"
-												minlength="2" placeholder="输入商品名（至少2 个字符）" required/>
+												minlength="2" placeholder="输入商品名（至少 2个字符）"
+												value="${goods.gname }" />
 										</div>
 										<div class="am-form-group">
 											<label for="doc-select-3">所属一级分类:</label>
 											<select id="doc-select-3" name="category.cid" class="chosen-select">
 												<c:forEach items="${list}" var="item">
-													<option value="${item.cid }">${item.cName }</option>
+													<c:choose>
+														<c:when test="${item.cid == goods.category.cid }">
+															<option value="${item.cid }" selected="selected">${item.cName }</option>
+														</c:when>
+														<c:otherwise>
+															<option value="${item.cid }">${item.cName }</option>
+														</c:otherwise>
+													</c:choose>
 												</c:forEach>
 											</select>
 										</div>
 										<div class="am-form-group">
 											<label for="doc-select-2">所属二级分类:</label>
 											<select id="doc-select-2" name="categorySecond.csid" class="chosen-select">
-												
 											</select>
 										</div>
 										<div class="am-form-group">
 											<label for="doc-vld-marketPrice-2">商品价格：</label>
 											<input name="gprice" type="text"
 												id="doc-vld-marketPrice-2" minlength="1"
-												placeholder="输入价格（至少 1 个字符）" required/>
+												placeholder="输入价格（至少 1 个字符）"
+												value="${goods.gprice }" />
 										</div>
 										<div class="am-form-group">
 											<label for="doc-vld-count">商品库存：</label>
 											<input name="gcount" type="text"
 												id="doc-vld-count" minlength="1"
-												placeholder="输入数量（至少 1 个字符）" required/>
+												placeholder="输入数量（至少 1 个字符）" value="${goods.gcount }" required/>
 										</div>
 										<div class="am-form-group">
 											<label for="doc-vld-ta-2">商品描述：</label>
-											<textarea name="gdesc" id="doc-vld-ta-2" rows="5"
-												minlength="10" maxlength="500" required></textarea>
+											<textarea name="pdesc" id="doc-vld-ta-2" rows="5"
+												minlength="10" maxlength="500">${goods.gdesc}</textarea>
 										</div>
-										<div class="am-form-group">
+										<%-- <div class="am-form-group">
 											<label for="doc-vld-ta-2">商品图片：</label>
-											<input type="file" name="file" />
-										</div>
+											<form:input path="image" type="hidden"
+												value="${productInfo.image }" />
+											<input type="file" name="upload" />
+										</div> --%>
 										<button class="am-btn am-btn-secondary" type="submit">提交</button>
 									</fieldset>
 								</form>
@@ -144,8 +159,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- navbar -->
 	<a href="admin-offcanvas"
 		class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu"
-		data-am-offcanvas="{target: '#admin-offcanvas'}">
-		<!--<i class="fa fa-bars" aria-hidden="true"></i>-->
+		data-am-offcanvas="{target: '#admin-offcanvas'}"> <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
 	</a>
 
 	<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
@@ -153,14 +167,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="assets/js/blockUI.js"></script>
 	<script type="text/javascript" src="assets/js/amazeui.chosen.min.js"></script>
 	<script type="text/javascript">
-		//ajax通过cid查询其下的二级分类
-		function findCategoryByID(cid){
+		 function findCategoryByID(cid){
 			$.ajax({
 				url:"admin/goods/findCategorySec.do?cid="+cid,
 				type:"post",
 				dataType:"json",
 				contentType:"application/json",               
-   				data:name, 
+					data:name, 
 				success:function(data){
 					$("#doc-select-2").html("");
 					for(var i = 0;i<data.categorySecondList.length;i++){
@@ -174,10 +187,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		}
-	
+		
 		$(function(){
 			
 			$('.chosen-select').chosen();//初始化amazeui的chosen插件
+			
+			//初始化一级分类下拉菜单
+			/* var html = "<option value='"+"${goods.category.cid}"+"'>"+"${goods.category.cName}"+"</option>"
+			$("#doc-select-3").append(html);
+			$("#doc-select-3").trigger('chosen:updated'); */
+			
+			
+			$("#doc-select-3").find("option[value='${goods.gid}']").attr("selected",true);
 			
 			findCategoryByID($("#doc-select-3").val());
 			
@@ -185,31 +206,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				var cid = $("#doc-select-3").val();
 				findCategoryByID(cid);
 			});
-		});
-		
-		$(function(){
-			$("#doc-vld-auther-2").change(function(){
-				var name = $("#doc-vld-auther-2").val();
-				$("#doc-vld-autherDesc-2").removeAttr("readonly");
-				$("#doc-vld-autherDesc-2").html("");
-				$.ajax({
-						url:"auther/findAuther",
-						type:"post",
-						dataType:"json",
-						contentType:"application/json",               
-           				data:name, 
-						success:function(data){
-							if(data.aname != null){
-								$("#doc-vld-autherDesc-2").attr("readonly","readonly");
-								$("#doc-vld-autherDesc-2").html(data.adesc);
-							}
-						},
-						error:function(){
-							
-						}
-					});
-			});
-		});
+		}); 
 	</script>
 </body>
 

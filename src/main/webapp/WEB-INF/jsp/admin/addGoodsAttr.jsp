@@ -12,8 +12,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>添加二级菜单</title>
+<title>添加商品附加属性</title>
 
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
 <link rel="stylesheet" href="assets/css/amazeui.css" />
 <link rel="stylesheet"
 	href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
@@ -23,6 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" href="assets/css/admin.css" />
 <link rel="stylesheet" href="assets/css/page/typography.css" />
 <link rel="stylesheet" href="assets/css/page/form.css" />
+<link rel="stylesheet" href="assets/css/amazeui.chosen.css"/> 
 
 </head>
 
@@ -72,21 +78,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								    </ul>
 								  </li>
 								</ul>
-								
-								<form action="admin/categorySecond/add.do" class="am-form" method="post" name="categorySecond"  data-am-validator>
+								<form action="admin/goods/addGoodsAttr.do" class="am-form" method="post"  id="doc-vld-msg" data-am-validator >
 								  <fieldset>
-								    <legend>添加二级分类</legend>
-								    <div class="am-form-group">
-								      <label for="doc-vld-name-2">二级分类名称：</label>
-								      <input name="csName" type="text" id="doc-vld-name-2" minlength="2" placeholder="输入二级菜单名（至少 2 个字符）" required/>
-								    </div>
-									<div class="am-form-group">
-									   <label for="doc-select-1">所属一级分类:</label>
-								      <select id="doc-select-1" name="category.cid">
-								       	<c:forEach items="${cate }" var="item" >
-									        <option  value="${item.cid}">${item.cName }</option>
-								     	</c:forEach>
-								      </select>
+								    <legend>添加商品附加属性</legend>
+								    
+									<div id="temp" class="am-form-group">
+											<label for="doc-select-3">选择模板:</label>
+											<select name="id" data-placeholder="点击多选" style="width:350px;" multiple class="chosen-select-no-results" tabindex="11">
+  												<c:forEach items="${temList }" var="item">
+  													<option value="${item.id }">${item.tname }:${item.tvalue }</option>
+  												</c:forEach>
+											</select>	
 									</div>
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>
@@ -114,6 +116,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="assets/js/jquery-2.1.0.js" ></script>
 		<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
 		<script type="text/javascript" src="assets/js/blockUI.js" ></script>
+		<script type="text/javascript" src="assets/js/amazeui.chosen.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			
+				$('.chosen-select-no-results').chosen();//初始化amazeui的chosen插件
+			});
+		</script>
 	</body>
 	
 </html>

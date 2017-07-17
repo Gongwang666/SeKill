@@ -2,8 +2,10 @@ package com.hzyc.sekill.model;
 
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -29,10 +32,11 @@ public class Goods {
 	private Double gprice;
 	private int gcount;
 	private String gdesc;
-	private String gaddtime;
-	private String gupdatetime;
+	private Date gaddtime;
+	private Date gupdatetime;
 	private Category category;
 	private CategorySecond categorySecond;
+	private Set<GoodsImg> goodsImg = new HashSet<GoodsImg>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getGid() {
@@ -65,16 +69,16 @@ public class Goods {
 	public void setGdesc(String gdesc) {
 		this.gdesc = gdesc;
 	}
-	public String getGaddtime() {
+	public Date getGaddtime() {
 		return gaddtime;
 	}
-	public void setGaddtime(String gaddtime) {
+	public void setGaddtime(Date gaddtime) {
 		this.gaddtime = gaddtime;
 	}
-	public String getGupdatetime() {
+	public Date getGupdatetime() {
 		return gupdatetime;
 	}
-	public void setGupdatetime(String gupdatetime) {
+	public void setGupdatetime(Date gupdatetime) {
 		this.gupdatetime = gupdatetime;
 	}
 	//设置与一级分类的多对一关联
@@ -95,6 +99,14 @@ public class Goods {
 	public void setCategorySecond(CategorySecond categorySecond) {
 		this.categorySecond = categorySecond;
 	}
+	@OneToMany(mappedBy="goods",cascade = CascadeType.ALL)
+	public Set<GoodsImg> getGoodsImg() {
+		return goodsImg;
+	}
+	public void setGoodsImg(Set<GoodsImg> goodsImg) {
+		this.goodsImg = goodsImg;
+	}
+	
 	
 	
 	

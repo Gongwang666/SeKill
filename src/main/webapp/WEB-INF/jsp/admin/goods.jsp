@@ -39,8 +39,8 @@
 					relatedTarget : this,
 					onConfirm : function(options) {
 						var $link = $(this.relatedTarget);
-						var pId = $link.data("id");
-						location.href ="http://localhost:8080/Onlinebookstore/adminProduct/remove?pId="+pId;
+						var gid = $link.data("id");
+						location.href ="http://localhost:8888/ssh/admin/goods/remove.do?gid="+gid;
 						},
 						// closeOnConfirm: false,
 						onCancel : function() {
@@ -129,6 +129,7 @@
 											<th class="table-type">所属一级分类</th>
 											<th class="table-type">所属二级分类</th>
 											<th class="table-type">单价</th>
+											<th class="table-type">库存</th>
 											<th class="table-type">添加时间</th>
 											<th class="table-type">修改时间</th>
 											<th class="table-set">操作</th>
@@ -140,22 +141,29 @@
 												<td><input type="checkbox" />
 												</td>
 												<td>${item.gid }</td>
-												<td><img src=""
-													style="width: 80px;height:100px;" />
-												</td>
+												<c:forEach begin="0" end="1" items="${item.goodsImg }" var="img">
+													<td><img src="${img.src }"
+														style="width: 80px;height:100px;" />
+													</td>
+												</c:forEach>
+												
 												<td><a href="#">${item.gname }</a>
 												</td>
 												<td><a href="#">${item.category.cName }</a></td>
 												<td><a href="#">${item.categorySecond.csName }</td>
 												<td class="am-hide-sm-only">${item.gprice }</td>
+												<td>${item.gcount }</td>
 												<td>${item.gaddtime }</td>
 												<td>${item.gupdatetime }</td>
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
 															<a class="am-btn am-btn-primary"
-																href="adminProduct/toEditProductPage?pId=${item.gid }"><span
-																class="am-icon-pencil-square-o"></span> 编辑</a> 
+																href="admin/goods/editPage.do?gid=${item.gid }"><span
+																class="am-icon-pencil-square-o"></span> 编辑</a>
+															<a class="am-btn am-btn-primary"
+																href="admin/goods/goodsAttr.do?gid=${item.gid }"><span
+																class="am-icon-pencil-square-o"></span> 附加属性</a>  
 															<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-del"
 																 data-id="${item.gid }">
 																<span class="am-icon-trash-o"></span> 删除

@@ -1,7 +1,9 @@
 package com.hzyc.sekill.model;
 
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -15,7 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 
 
@@ -30,9 +31,9 @@ import javax.persistence.Transient;
 public class CategorySecond{
 	private int csid;
 	private String csName;
-	//一级菜单的id，不参与持久化，只是为了表单提交时获取该值
 	private Category category;
 	private Set<Goods> products = new HashSet<Goods>();
+	private List<Template> templates = new ArrayList<Template>();
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getCsid() {
@@ -66,5 +67,13 @@ public class CategorySecond{
 	public void setProducts(Set<Goods> products) {
 		this.products = products;
 	}
+	@OneToMany(mappedBy="categorySecond",cascade = CascadeType.ALL)
+	public List<Template> getTemplates() {
+		return templates;
+	}
+	public void setTemplates(List<Template> templates) {
+		this.templates = templates;
+	}
+	
 	
 }

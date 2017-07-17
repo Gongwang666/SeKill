@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <base href="<%=basePath%>">
 
-<title>添加二级菜单</title>
+<title>添加模板</title>
 
 <link rel="stylesheet" href="assets/css/amazeui.css" />
 <link rel="stylesheet"
@@ -72,22 +72,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								    </ul>
 								  </li>
 								</ul>
-								
-								<form action="admin/categorySecond/add.do" class="am-form" method="post" name="categorySecond"  data-am-validator>
+								<div class="am-form-group">
+								      <label>已有属性:</label>
+								      <ul class="am-list am-list-static am-list-border">
+									  	<c:forEach items="${templates}" var="item">
+									  		<li>
+										  		<a class="am-badge am-badge-danger">删除</a>
+										    	<a class="am-badge am-badge-success">编辑</a> 
+										    	${item.tname }--------${item.tvalue }
+									    </li>
+									  	</c:forEach>
+									  </ul>
+								</div>
+								<form action="admin/categorySecond/addTemplate.do" class="am-form" method="post" name="categorySecond"  data-am-validator>
 								  <fieldset>
-								    <legend>添加二级分类</legend>
-								    <div class="am-form-group">
-								      <label for="doc-vld-name-2">二级分类名称：</label>
-								      <input name="csName" type="text" id="doc-vld-name-2" minlength="2" placeholder="输入二级菜单名（至少 2 个字符）" required/>
+								    <legend>添加附加属性:</legend>
+									<div id="template" class="am-form-group">
+								      <label></label>
+								      <button id="add_btn" type="button" class="am-btn am-btn-secondary">添加</button>
 								    </div>
-									<div class="am-form-group">
-									   <label for="doc-select-1">所属一级分类:</label>
-								      <select id="doc-select-1" name="category.cid">
-								       	<c:forEach items="${cate }" var="item" >
-									        <option  value="${item.cid}">${item.cName }</option>
-								     	</c:forEach>
-								      </select>
-									</div>
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>
 								</form>
@@ -114,6 +117,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<script type="text/javascript" src="assets/js/jquery-2.1.0.js" ></script>
 		<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
 		<script type="text/javascript" src="assets/js/blockUI.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var i = 0;
+				$("#add_btn").on("click",function(){
+					
+					var html = "<input name='templates["+i+"].tname' type='text' id='doc-vld-name-2' minlength='2' placeholder='输入属性名（至少 2 个字符）' required/>";
+					var html2 = "<input name='templates["+i+"].tvalue' type='text' id='doc-vld-name-2' minlength='2' placeholder='输入属性值（至少 2 个字符）' required/>";
+					var html3 = "<input name='templates["+i+"].categorySecond.csid' value='${csid}' type='hidden' id='doc-vld-name-2'/>";
+					$("#template").append(html+html2+html3);
+					i++;
+				});
+			});
+		</script>
 	</body>
 	
 </html>

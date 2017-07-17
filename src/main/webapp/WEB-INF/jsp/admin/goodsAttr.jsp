@@ -12,8 +12,13 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>二级分类管理</title>
+<title>商品附加属性</title>
 
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="assets/css/amazeui.css" />
 <link rel="stylesheet"
@@ -26,7 +31,7 @@
 <link rel="stylesheet" href="assets/css/page/form.css" />
 <script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
-	//删除二级分类的模态窗口
+	//删除商品的模态窗口
 	$(function() {
 		$("#doc-modal-list").find(".btn-del")
 		.on("click",function() {
@@ -34,9 +39,8 @@
 					relatedTarget : this,
 					onConfirm : function(options) {
 						var $link = $(this.relatedTarget);
-						var csid = $link.data("id");
-						var page = "${pageBean.page}";
-						location.href ="http://localhost:8888/ssh/admin/categorySecond/remove.do?csid="+csid;
+						var gid = $link.data("id");
+						location.href ="http://localhost:8888/ssh/admin/goods/remove.do?gid="+gid;
 						},
 						// closeOnConfirm: false,
 						onCancel : function() {
@@ -82,9 +86,9 @@
 						<div class="am-u-sm-12 am-u-md-6">
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<a href="admin/categorySecond/addPage.do" class="am-btn am-btn-default">
-										<span class="am-icon-plus"></span> 新增
-									</a>
+									<a href="admin/goods/addGoodsAttrPage.do?gid=${gid }"
+										class="am-btn am-btn-default"> <span class="am-icon-plus"></span>
+										新增 </a>
 									<button type="button" class="am-btn am-btn-default">
 										<span class="am-icon-save"></span> 保存
 									</button>
@@ -117,34 +121,36 @@
 									class="am-table am-table-striped am-table-hover table-main">
 									<thead>
 										<tr>
-											<th class="table-check"><input type="checkbox" /></th>
-											<th class="table-id">ID</th>
-											<th class="table-title">名称</th>
-											<th class="table-type">所属一级分类ID</th>
-											<th class="table-type">所属一级分类名称</th>
+											<th class="table-check"><input type="checkbox" />
+											</th>
+											<c:forEach items="${list }" var="item">
+												<th class="table-id">${item.template.tname }</th>
+											</c:forEach>
 											<th class="table-set">操作</th>
 										</tr>
 									</thead>
 									<tbody id="doc-modal-list">
-										<c:forEach items="${list }" var="item">
 											<tr>
-												<td><input type="checkbox" /></td>
-												<td>${item.csid }</td>
-												<td><a href="#">${item.csName }</a></td>
-												<td>${item.category.cid }</td>
-												<td class="am-hide-sm-only">${item.category.cName }</td>
+												<td><input type="checkbox" />
+												</td>
+												<c:forEach items="${list }" var="item">
+													<td>${item.template.tvalue }</td>
+												</c:forEach>
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
-															<a class="am-btn am-btn-primary" href="admin/categorySecond/editPage.do?csid=${item.csid }" ><span class="am-icon-pencil-square-o"></span> 编辑</a>
-															<a class="am-btn am-btn-primary" href="admin/categorySecond/addTemplatePage.do?csid=${item.csid }" ><span class="am-icon-pencil-square-o"></span> 添加模板</a>
+															<a class="am-btn am-btn-primary"
+																href="admin/goods/editPage.do?gid=${item.gid }"><span
+																class="am-icon-pencil-square-o"></span> 编辑</a>
+															<a class="am-btn am-btn-primary"
+																href="admin/goods/editPage.do?gid=${item.gid }"><span
+																class="am-icon-pencil-square-o"></span> 附加属性</a>  
 															<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-del"
-																 data-id="${item.csid }">
+																 data-id="${item.gid }">
 																<span class="am-icon-trash-o"></span> 删除
 															</button>
 														</div>
-													</div>
-													<div class="am-modal am-modal-confirm" tabindex="-1"
+														<div class="am-modal am-modal-confirm" tabindex="-1"
 															id="my-confirm">
 															<div class="am-modal-dialog">
 																<div class="am-modal-hd">Amaze UI</div>
@@ -155,9 +161,8 @@
 																</div>
 															</div>
 														</div>
-												</td>
+													</div></td>
 											</tr>
-										</c:forEach>
 									</tbody>
 								</table>
 								<div class="am-cf">
@@ -167,29 +172,38 @@
 										<ul class="am-pagination">
 											<c:choose>
 												<c:when test="${pageBean.page == 1 }">
-													<li class="am-disabled"><a>«</a></li>
+													<li class="am-disabled"><a>«</a>
+													</li>
 												</c:when>
 												<c:otherwise>
-													<li><a href="adminCategorySecond/listAllCategorySecond?page=${pageBean.page - 1 }">«</a></li>
+													<li><a
+														href="adminProduct/listAllProduct?page=${pageBean.page - 1 }">«</a>
+													</li>
 												</c:otherwise>
 											</c:choose>
 											<c:forEach begin="1" end="${pageBean.totalPage }"
 												varStatus="i">
 												<c:choose>
 													<c:when test="${i.count != pageBean.page}">
-														<li><a href="adminCategorySecond/listAllCategorySecond?page=${i.count }">${i.count}</a></li>
+														<li><a
+															href="adminProduct/listAllProduct?page=${i.count }">${i.count}</a>
+														</li>
 													</c:when>
 													<c:otherwise>
-														<li class="am-active"><a>${i.count}</a></li>
+														<li class="am-active"><a>${i.count}</a>
+														</li>
 													</c:otherwise>
 												</c:choose>
 											</c:forEach>
 											<c:choose>
 												<c:when test="${pageBean.page == pageBean.totalPage }">
-													<li class="am-disabled"><a>»</a></li>
+													<li class="am-disabled"><a>»</a>
+													</li>
 												</c:when>
 												<c:otherwise>
-													<li><a href="adminCategorySecond/listAllCategorySecond?page=${pageBean.page + 1 }">»</a></li>
+													<li><a
+														href="adminProduct/listAllProduct?page=${pageBean.page + 1 }">»</a>
+													</li>
 												</c:otherwise>
 											</c:choose>
 										</ul>
@@ -224,10 +238,10 @@
 		data-am-offcanvas="{target: '#admin-offcanvas'}"> <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
 	</a>
 
-	<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
 	<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="assets/js/app.js"></script>
 	<script type="text/javascript" src="assets/js/blockUI.js"></script>
+
 </body>
 
 </html>
