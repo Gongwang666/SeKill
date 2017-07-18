@@ -19,4 +19,12 @@ public interface GoodsService extends BaseService{
 	public Goods findGoodsByID(int gid) throws Exception;
 	
 	public List<GoodsAttr> findGoodsAttrAll(int gid);
+	/**
+	 * 查询商品附加属性是否已经存在
+	 */
+	public boolean isAttrExist(GoodsAttr goodsAttr);
+	
+	public void addGoodsAttr(List<GoodsAttr> list);
+
+	public void edit(Goods goods);
 }

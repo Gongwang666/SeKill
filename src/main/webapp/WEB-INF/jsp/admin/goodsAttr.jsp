@@ -39,8 +39,8 @@
 					relatedTarget : this,
 					onConfirm : function(options) {
 						var $link = $(this.relatedTarget);
-						var gid = $link.data("id");
-						location.href ="http://localhost:8888/ssh/admin/goods/remove.do?gid="+gid;
+						var id = $link.data("id");
+						location.href ="http://localhost:8888/ssh/admin/goods/removeGoodsAttr.do?id="+id+"&gid=${gid}";
 						},
 						// closeOnConfirm: false,
 						onCancel : function() {
@@ -123,30 +123,23 @@
 										<tr>
 											<th class="table-check"><input type="checkbox" />
 											</th>
-											<c:forEach items="${list }" var="item">
-												<th class="table-id">${item.template.tname }</th>
-											</c:forEach>
+											<th class="table-id">属性名称</th>
+											<th class="table-id">属性值</th>
 											<th class="table-set">操作</th>
 										</tr>
 									</thead>
 									<tbody id="doc-modal-list">
+										<c:forEach items="${list }" var="item">	
 											<tr>
 												<td><input type="checkbox" />
 												</td>
-												<c:forEach items="${list }" var="item">
-													<td>${item.template.tvalue }</td>
-												</c:forEach>
+												<td>${item.template.tname }</td>
+												<td>${item.template.tvalue }</td>
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
-															<a class="am-btn am-btn-primary"
-																href="admin/goods/editPage.do?gid=${item.gid }"><span
-																class="am-icon-pencil-square-o"></span> 编辑</a>
-															<a class="am-btn am-btn-primary"
-																href="admin/goods/editPage.do?gid=${item.gid }"><span
-																class="am-icon-pencil-square-o"></span> 附加属性</a>  
 															<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-del"
-																 data-id="${item.gid }">
+																 data-id="${item.id }">
 																<span class="am-icon-trash-o"></span> 删除
 															</button>
 														</div>
@@ -163,54 +156,10 @@
 														</div>
 													</div></td>
 											</tr>
+											</c:forEach>
 									</tbody>
 								</table>
-								<div class="am-cf">
-									共 ${pageBean.totalCount } 条记录 &nbsp; &nbsp; &nbsp; &nbsp;
-									&nbsp; 共 ${pageBean.totalPage } 页
-									<div class="am-fr">
-										<ul class="am-pagination">
-											<c:choose>
-												<c:when test="${pageBean.page == 1 }">
-													<li class="am-disabled"><a>«</a>
-													</li>
-												</c:when>
-												<c:otherwise>
-													<li><a
-														href="adminProduct/listAllProduct?page=${pageBean.page - 1 }">«</a>
-													</li>
-												</c:otherwise>
-											</c:choose>
-											<c:forEach begin="1" end="${pageBean.totalPage }"
-												varStatus="i">
-												<c:choose>
-													<c:when test="${i.count != pageBean.page}">
-														<li><a
-															href="adminProduct/listAllProduct?page=${i.count }">${i.count}</a>
-														</li>
-													</c:when>
-													<c:otherwise>
-														<li class="am-active"><a>${i.count}</a>
-														</li>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-											<c:choose>
-												<c:when test="${pageBean.page == pageBean.totalPage }">
-													<li class="am-disabled"><a>»</a>
-													</li>
-												</c:when>
-												<c:otherwise>
-													<li><a
-														href="adminProduct/listAllProduct?page=${pageBean.page + 1 }">»</a>
-													</li>
-												</c:otherwise>
-											</c:choose>
-										</ul>
-									</div>
-								</div>
-								<hr />
-								<p>注：.....</p>
+								
 							</form>
 						</div>
 

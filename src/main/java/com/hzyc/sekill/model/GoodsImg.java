@@ -41,7 +41,7 @@ public class GoodsImg {
 		this.src = src;
 	}
 	@ManyToOne(targetEntity=Goods.class,optional = true,fetch = FetchType.LAZY)
-	@Cascade(value=CascadeType.SAVE_UPDATE)
+	@Cascade(value=CascadeType.MERGE)
 	@JoinColumn(name="gid")
 	public Goods getGoods() {
 		return goods;

@@ -79,7 +79,7 @@
 									</ul></li>
 							</ul>
 							<div class="am-u-sm-8 am-u-sm-centered">
-								<form action="adminProduct/edit" class="am-form"
+								<form action="admin/goods/edit.do" class="am-form"
 									method="post" enctype="multipart/form-data"
 									name="goods">
 									<fieldset>
@@ -127,7 +127,7 @@
 										</div>
 										<div class="am-form-group">
 											<label for="doc-vld-ta-2">商品描述：</label>
-											<textarea name="pdesc" id="doc-vld-ta-2" rows="5"
+											<textarea name="gdesc" id="doc-vld-ta-2" rows="5"
 												minlength="10" maxlength="500">${goods.gdesc}</textarea>
 										</div>
 										<%-- <div class="am-form-group">
@@ -136,6 +136,7 @@
 												value="${productInfo.image }" />
 											<input type="file" name="upload" />
 										</div> --%>
+										<input name="gaddtime" type="hidden" value="${goods.gaddtime }"/>
 										<button class="am-btn am-btn-secondary" type="submit">提交</button>
 									</fieldset>
 								</form>
@@ -200,7 +201,7 @@
 			
 			$("#doc-select-3").find("option[value='${goods.gid}']").attr("selected",true);
 			
-			findCategoryByID($("#doc-select-3").val());
+			findCategoryByID($("#doc-select-3").val()); 
 			
 			$("#doc-select-3").on("change",function(){
 				var cid = $("#doc-select-3").val();

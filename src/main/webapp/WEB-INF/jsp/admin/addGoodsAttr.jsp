@@ -88,7 +88,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   												<c:forEach items="${temList }" var="item">
   													<option value="${item.id }">${item.tname }:${item.tvalue }</option>
   												</c:forEach>
-											</select>	
+											</select>
+											<input type="hidden" value="${gid}" name="gid"/>	
 									</div>
 								    <button class="am-btn am-btn-secondary" type="submit">提交</button>
 								  </fieldset>

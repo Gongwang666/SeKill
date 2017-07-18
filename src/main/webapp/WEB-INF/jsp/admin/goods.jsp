@@ -141,9 +141,9 @@
 												<td><input type="checkbox" />
 												</td>
 												<td>${item.gid }</td>
-												<c:forEach begin="0" end="1" items="${item.goodsImg }" var="img">
-													<td><img src="${img.src }"
-														style="width: 80px;height:100px;" />
+												<c:forEach begin="0" end="0" items="${item.goodsImg }" var="img">
+													<td><a href="admin/goods/showGoodsImg.do?gid=${item.gid }"><img src="${img.src }"
+														style="width: 80px;height:100px;" /></a>
 													</td>
 												</c:forEach>
 												
@@ -186,48 +186,13 @@
 									</tbody>
 								</table>
 								<div class="am-cf">
-									共 ${pageBean.totalCount } 条记录 &nbsp; &nbsp; &nbsp; &nbsp;
-									&nbsp; 共 ${pageBean.totalPage } 页
+									共${requestScope.page.totalSize } 条记录 
 									<div class="am-fr">
-										<ul class="am-pagination">
-											<c:choose>
-												<c:when test="${pageBean.page == 1 }">
-													<li class="am-disabled"><a>«</a>
-													</li>
-												</c:when>
-												<c:otherwise>
-													<li><a
-														href="adminProduct/listAllProduct?page=${pageBean.page - 1 }">«</a>
-													</li>
-												</c:otherwise>
-											</c:choose>
-											<c:forEach begin="1" end="${pageBean.totalPage }"
-												varStatus="i">
-												<c:choose>
-													<c:when test="${i.count != pageBean.page}">
-														<li><a
-															href="adminProduct/listAllProduct?page=${i.count }">${i.count}</a>
-														</li>
-													</c:when>
-													<c:otherwise>
-														<li class="am-active"><a>${i.count}</a>
-														</li>
-													</c:otherwise>
-												</c:choose>
-											</c:forEach>
-											<c:choose>
-												<c:when test="${pageBean.page == pageBean.totalPage }">
-													<li class="am-disabled"><a>»</a>
-													</li>
-												</c:when>
-												<c:otherwise>
-													<li><a
-														href="adminProduct/listAllProduct?page=${pageBean.page + 1 }">»</a>
-													</li>
-												</c:otherwise>
-											</c:choose>
+										<ul class="am-pagination ">
+											${requestScope.pageString }
 										</ul>
 									</div>
+								<hr />
 								</div>
 								<hr />
 								<p>注：.....</p>
@@ -257,11 +222,34 @@
 		class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu"
 		data-am-offcanvas="{target: '#admin-offcanvas'}"> <!--<i class="fa fa-bars" aria-hidden="true"></i>-->
 	</a>
-
+	<input type="hidden" value="${requestScope.page.totalPage }" id="totalPage"/>
 	<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
-	<script type="text/javascript" src="assets/js/app.js"></script>
 	<script type="text/javascript" src="assets/js/blockUI.js"></script>
-
+	<script type="text/javascript">
+		/**
+		*跳转到首页
+		*/
+		function toStart(){
+			window.location.href="http://localhost:8888/ssh/admin/goods/listAll.do?currentPage=1";
+		}
+			
+		/**
+		*跳转到尾页
+		*/
+		function toEnd(){
+			var totalPage = $('#totalPage').val();
+			window.location.href="http://localhost:8888/ssh/admin/goods/listAll.do?currentPage="+totalPage;
+		}
+		
+		$(function(){
+			$('.page_s').on('click',function(){
+				var count = $(this).attr('lang');
+				if (count <= parseInt($('#totalPage').val()) && count >= 1){
+				window.location.href="http://localhost:8888/ssh/admin/goods/listAll.do?currentPage="+count;
+			}
+			});
+		});
+	</script>
 </body>
 
 </html>

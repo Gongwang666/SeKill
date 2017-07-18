@@ -205,4 +205,5 @@ public interface BaseDAO {
 	
 	public void delete(Class<?> cla, Long... ids);
 	
+	
 }

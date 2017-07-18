@@ -2,6 +2,7 @@ package com.hzyc.sekill.controller.admin;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -65,16 +66,25 @@ public class GoodsController extends BaseController{
 		List<Template> list =categorySecondService.findTemplatesById(
 				goodsService.findGoodsByID(gid).getCategorySecond().getCsid());
 		model.addAttribute("temList", list);
+		model.addAttribute("gid", gid);
 		return "/admin/addGoodsAttr";
 	}
 	
 	@RequestMapping("/addGoodsAttr.do")
-	public String addGoodsAttr(int[] id) throws Exception{
+	public String addGoodsAttr(int[] id,int gid) throws Exception{
+		List<GoodsAttr> list = new ArrayList<GoodsAttr>();
 		for(int i:id){
-			System.out.println(i+"@@@@@@@@@");
+			Template template = new Template();
+			template.setId(i);
+			Goods goods = new Goods();
+			goods.setGid(gid);
+			GoodsAttr goodsAttr = new GoodsAttr(goods,template);
+			if(!goodsService.isAttrExist(goodsAttr)){
+				list.add(goodsAttr);
+			}
 		}
-		return null;
-		//return "redirect:/admin/goods/goodsAttr.do";
+		goodsService.addGoodsAttr(list);
+		return "redirect:/admin/goods/goodsAttr.do?gid="+gid;
 	}
 	
 	@RequestMapping("/addPage.do")
@@ -87,6 +97,7 @@ public class GoodsController extends BaseController{
 	public String addGoods(MultipartFile file,Goods goods,HttpServletRequest request) throws Exception{
 		try {
 			String fileName = file.getOriginalFilename();
+			goodsService.addGoods(goods);
 			if(!file.isEmpty()){
 				// 将商品图片上传到服务器上.
 				// 获得上传图片的服务器端路径.
@@ -103,8 +114,33 @@ public class GoodsController extends BaseController{
 				goodsImgService.addImg(goodsImg);
 				//goods.set("goods_imgs/" + newFileName);
 			}
-			goodsService.addGoods(goods);
 			return "redirect:/admin/goods/listAll.do";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	@RequestMapping("/addImg.do")
+	public String addImg(MultipartFile file,Goods goods,HttpServletRequest request) throws Exception{
+		try {
+			String fileName = file.getOriginalFilename();
+			if(!file.isEmpty()){
+				// 将商品图片上传到服务器上.
+				// 获得上传图片的服务器端路径.
+				String path = request.getSession().getServletContext().getRealPath(
+						"/goods_imgs");
+				String newFileName = new Date().getTime()+fileName.substring(fileName.lastIndexOf("."));
+				// 创建文件类型对象:
+				File diskFile = new File(path + "//" + newFileName);
+				// 文件上传:
+				file.transferTo(diskFile);
+				String src = "goods_imgs/" + newFileName;
+				System.out.println("----------------"+goods.getGid());
+				GoodsImg goodsImg = new GoodsImg(src,goods);
+				goodsImgService.addImg(goodsImg);
+			}
+			return "redirect:/admin/goods/showGoodsImg.do?gid="+goods.getGid();
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -117,12 +153,12 @@ public class GoodsController extends BaseController{
 		return new CategoryBean(categoryService.findCategoryById(cid));
 	}
 	
-	@ResponseBody
+	/*@ResponseBody
 	@RequestMapping("/findGoods.do")
 	public Map<String,Object> findGoods(int cid) throws Exception{
 		//return new CategoryBean(categoryService.findCategoryById(cid));
 		return null;
-	}
+	}*/
 	
 	@RequestMapping("/editPage.do")
 	public String editPage(Model model,int gid) throws Exception{
@@ -130,6 +166,17 @@ public class GoodsController extends BaseController{
 		model.addAttribute("goods", goodsService.findGoodsByID(gid));
 		model.addAttribute("list", categoryService.findCategoryAll());
 		return "/admin/editGoods";
+	}
+	//修改
+	@RequestMapping("/edit.do")
+	public String editGoods(Goods goods) throws Exception{
+		try {
+			goodsService.edit(goods);
+			return "redirect:/admin/goods/listAll.do";
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
 	
 	//删除
@@ -142,6 +189,27 @@ public class GoodsController extends BaseController{
 			e.printStackTrace();
 			throw e;
 		}
+	}
+	
+	@RequestMapping("/removeGoodsAttr.do")
+	public String removeGoodsAttr(GoodsAttr goodsAttr,int gid) throws Exception{
+		try {
+			Goods goods = new Goods();
+			goods.setGid(gid);
+			goodsAttr.setGoods(goods);
+			goodsService.delete(goodsAttr);
+			return "redirect:/admin/goods/goodsAttr.do?gid="+goodsAttr.getGoods().getGid();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
+	
+	@RequestMapping("/showGoodsImg.do")
+	public String showGoodsImg(Model model,int gid) throws Exception{
+		model.addAttribute("srcList", goodsService.findGoodsByID(gid).getGoodsImg());
+		model.addAttribute("gid", gid);
+		return "/admin/goodsImg";
 	}
 	
 	@RequestMapping("/upload.do")

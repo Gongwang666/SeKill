@@ -6,8 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 /**
  * 
  * 商品附加属性实体类
@@ -18,13 +22,14 @@ import javax.persistence.Table;
 @Table(name="gattr")
 public class GoodsAttr {
 	private int id;
-	private int gid;
+	//private int gid;
 	private Template template;
+	private Goods goods;
 	
 	public GoodsAttr() {
 	}
-	public GoodsAttr(int gid,Template template) {
-		this.gid = gid;
+	public GoodsAttr(Goods goods,Template template) {
+		this.goods = goods;
 		this.template = template;
 	}
 	@Id
@@ -35,19 +40,28 @@ public class GoodsAttr {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getGid() {
+	/*public int getGid() {
 		return gid;
 	}
 	public void setGid(int gid) {
 		this.gid = gid;
-	}
-	@OneToOne(targetEntity=Template.class,optional = true,fetch = FetchType.LAZY)
+	}*/
+	@ManyToOne(targetEntity=Template.class,optional = true,fetch = FetchType.LAZY)
 	@JoinColumn(name="tid")
 	public Template getTemplate() {
 		return template;
 	}
 	public void setTemplate(Template template) {
 		this.template = template;
+	}
+	@ManyToOne(targetEntity=Goods.class,optional = true,fetch = FetchType.LAZY)
+	//@Cascade(value=CascadeType.SAVE_UPDATE)
+	@JoinColumn(name="gid")
+	public Goods getGoods() {
+		return goods;
+	}
+	public void setGoods(Goods goods) {
+		this.goods = goods;
 	}
 	
 }

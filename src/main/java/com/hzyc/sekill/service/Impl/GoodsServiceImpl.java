@@ -36,4 +36,31 @@ public class GoodsServiceImpl extends BaseServiceImpl implements GoodsService{
 		return getBaseDao().find(hql);
 	}
 
+	@Override
+	public boolean isAttrExist(GoodsAttr goodsAttr) {
+		String hql = "from GoodsAttr where tid= ? and gid = ?";
+		GoodsAttr gAttr = (GoodsAttr)getBaseDao().getOne(hql, goodsAttr.getTemplate().getId(),goodsAttr.getGoods().getGid());
+		if(gAttr!=null){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	@Override
+	public void addGoodsAttr(List<GoodsAttr> list) {
+		try {
+			getBaseDao().batchAddEnity(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void edit(Goods goods) {
+		goods.setGupdatetime(new Date());
+		getBaseDao().update(goods);
+		
+	}
+
 }

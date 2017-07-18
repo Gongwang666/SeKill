@@ -185,12 +185,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									</tbody>
 								</table>
 								<div class="am-cf">
-									共${requestScope.page.totalSize }
-									<%-- <c:choose>
-										<c:when test="${categoryCount == null}">0</c:when>
-										<c:otherwise>${categoryCount}</c:otherwise>
-									</c:choose>  --%>
-									条记录
+									共${requestScope.page.totalSize } 条记录 
+									<div class="am-fr">
+										<ul class="am-pagination ">
+											${requestScope.pageString }
+										</ul>
+									</div>
+								<hr />
 								</div>
 								<hr />
 								<p>注：.....</p>
@@ -221,10 +222,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		data-am-offcanvas="{target: '#admin-offcanvas'}">
 		<!--<i class="fa fa-bars" aria-hidden="true"></i>-->
 	</a>
-
-	<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
+	<input type="hidden" value="${requestScope.page.totalPage }" id="totalPage"/>
 	<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
 	<script type="text/javascript" src="assets/js/blockUI.js"></script>
+	<script type="text/javascript">
+		/**
+		*跳转到首页
+		*/
+		function toStart(){
+			window.location.href="http://localhost:8888/ssh/admin/category/listAll.do?currentPage=1";
+		}
+			
+		/**
+		*跳转到尾页
+		*/
+		function toEnd(){
+			var totalPage = $('#totalPage').val();
+			window.location.href="http://localhost:8888/ssh/admin/category/listAll.do?currentPage="+totalPage;
+		}
+		
+		$(function(){
+			$('.page_s').on('click',function(){
+				var count = $(this).attr('lang');
+				if (count <= parseInt($('#totalPage').val()) && count >= 1){
+				window.location.href="http://localhost:8888/ssh/admin/category/listAll.do?currentPage="+count;
+			}
+			});
+		});
+	</script>
 </body>
 
 </html>

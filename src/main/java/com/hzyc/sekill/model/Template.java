@@ -1,5 +1,8 @@
 package com.hzyc.sekill.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,7 +27,7 @@ public class Template {
 	private String tname;
 	private String tvalue;
 	private CategorySecond categorySecond;
-	private GoodsAttr goodsAttr;
+	private List<GoodsAttr> goodsAttr = new ArrayList<GoodsAttr>();
 	public Template() {
 		
 	}
@@ -62,11 +65,11 @@ public class Template {
 	public void setCategorySecond(CategorySecond categorySecond) {
 		this.categorySecond = categorySecond;
 	}
-	@OneToOne(mappedBy="template",cascade = CascadeType.ALL)
-	public GoodsAttr getGoodsAttr() {
+	@OneToMany(mappedBy="template",cascade = CascadeType.ALL)
+	public List<GoodsAttr> getGoodsAttr() {
 		return goodsAttr;
 	}
-	public void setGoodsAttr(GoodsAttr goodsAttr) {
+	public void setGoodsAttr(List<GoodsAttr> goodsAttr) {
 		this.goodsAttr = goodsAttr;
 	}
 	

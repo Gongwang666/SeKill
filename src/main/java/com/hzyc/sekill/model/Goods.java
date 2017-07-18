@@ -1,8 +1,10 @@
 package com.hzyc.sekill.model;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,7 +16,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 
@@ -32,11 +37,15 @@ public class Goods {
 	private Double gprice;
 	private int gcount;
 	private String gdesc;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date gaddtime;
+	@DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date gupdatetime;
 	private Category category;
 	private CategorySecond categorySecond;
 	private Set<GoodsImg> goodsImg = new HashSet<GoodsImg>();
+	private List<GoodsAttr> goodsAttr = new ArrayList<GoodsAttr>();
+	private SecKill seckill;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getGid() {
@@ -105,6 +114,20 @@ public class Goods {
 	}
 	public void setGoodsImg(Set<GoodsImg> goodsImg) {
 		this.goodsImg = goodsImg;
+	}
+	@OneToMany(mappedBy="goods",cascade = CascadeType.ALL)
+	public List<GoodsAttr> getGoodsAttr() {
+		return goodsAttr;
+	}
+	public void setGoodsAttr(List<GoodsAttr> goodsAttr) {
+		this.goodsAttr = goodsAttr;
+	}
+	@OneToOne(mappedBy="goods",cascade = CascadeType.ALL)
+	public SecKill getSeckill() {
+		return seckill;
+	}
+	public void setSeckill(SecKill seckill) {
+		this.seckill = seckill;
 	}
 	
 	
