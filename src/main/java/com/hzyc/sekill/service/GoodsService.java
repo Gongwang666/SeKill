@@ -27,4 +27,6 @@ public interface GoodsService extends BaseService{
 	public void addGoodsAttr(List<GoodsAttr> list);
 
 	public void edit(Goods goods);
+	
+	public List<Goods> findGoodsByName(String name);
 }

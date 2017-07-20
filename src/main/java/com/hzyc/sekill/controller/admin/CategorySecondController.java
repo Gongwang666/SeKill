@@ -65,6 +65,17 @@ public class CategorySecondController extends BaseController{
 		categorySecondService.addTemplate(cs);	
 		return "redirect:/admin/categorySecond/listAll.do";
 	}
+	
+	@RequestMapping("/removeTemplate.do")
+	public String removeTemplate(Template template,int csid) throws Exception{
+		try {
+			categorySecondService.delete(template);
+			return "redirect:/admin/categorySecond/addTemplatePage.do?csid="+csid;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
+	}
 	//跳转到修改页面
 	@RequestMapping("/editPage.do")
 	public String editPage(Model model,int csid) throws Exception{

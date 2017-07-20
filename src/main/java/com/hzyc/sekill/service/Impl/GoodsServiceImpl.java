@@ -63,4 +63,10 @@ public class GoodsServiceImpl extends BaseServiceImpl implements GoodsService{
 		
 	}
 
+	@Override
+	public List<Goods> findGoodsByName(String name) {
+		String hql = "from Goods g where g.gname like '%"+name+"%'";
+		return getBaseDao().find(hql);
+	}
+
 }

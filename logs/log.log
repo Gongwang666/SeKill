@@ -129,3 +129,359 @@
 [INFO] [2017-07-11 10:49:43][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/js/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
 [INFO] [2017-07-11 10:49:43][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/css/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#1'
 [INFO] [2017-07-11 10:49:43][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping]Mapped URL path [/img/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#2'
+[INFO] [2017-07-19 22:41:52][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 22:41:52][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 22:41:52 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 22:41:52][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 22:41:52][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 22:41:53][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 22:41:53][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 22:41:53][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 22:41:53][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 22:41:53][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 22:41:53][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 22:41:53][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, remcount, endtime, starttime, sid]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 22:41:54][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 22:41:54][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@7f1ef916] of Hibernate SessionFactory for HibernateTransactionManager
+[WARN] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]SQL Error: 1263, SQLState: 22001
+[ERROR] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]Data truncation: Column set to default value; NULL supplied to NOT NULL column 'gname' at row 1
+[INFO] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl]HHH000010: On release of batch it still contained JDBC statements
+[WARN] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]SQL Warning Code: 1263, SQLState: 01000
+[WARN] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]Column set to default value; NULL supplied to NOT NULL column 'gname' at row 1
+[WARN] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]SQL Warning Code: 1263, SQLState: 01000
+[WARN] [2017-07-19 22:41:55][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]Column set to default value; NULL supplied to NOT NULL column 'gprice' at row 1
+[INFO] [2017-07-19 22:41:55][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 22:41:52 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 22:50:05][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 22:50:06][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 22:50:06 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 22:50:06][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 22:50:06][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 22:50:06][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 22:50:06][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 22:50:06][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 22:50:06][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 22:50:07][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 22:50:07][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 22:50:07][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, remcount, endtime, starttime, sid]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 22:50:08][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 22:50:08][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@64aad809] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 22:50:08][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 22:50:06 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:25:20][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 23:25:20][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:25:20 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:25:20][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 23:25:20][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 23:25:21][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 23:25:21][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 23:25:21][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 23:25:21][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 23:25:21][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 23:25:21][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 23:25:21][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, addtime, remcount, name, endtime, starttime, updatetime, sid]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:25:22][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 23:25:22][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@3bbf6abe] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 23:25:23][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:25:20 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:26:04][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 23:26:04][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:26:04 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:26:04][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 23:26:04][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 23:26:05][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 23:26:05][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 23:26:05][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 23:26:05][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 23:26:05][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 23:26:05][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 23:26:05][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, addtime, remcount, name, endtime, starttime, updatetime, sid]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:26:06][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 23:26:06][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@3bbf6abe] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 23:26:06][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:26:04 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:26:54][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 23:26:54][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:26:54 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:26:54][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 23:26:54][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 23:26:55][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 23:26:55][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 23:26:55][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 23:26:55][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 23:26:55][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 23:26:56][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 23:26:56][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:26:56][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, addtime, remcount, name, endtime, starttime, updatetime, sid]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:26:57][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 23:26:57][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@3bbf6abe] of Hibernate SessionFactory for HibernateTransactionManager
+[WARN] [2017-07-19 23:26:57][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]SQL Error: 1048, SQLState: 23000
+[ERROR] [2017-07-19 23:26:57][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]Column 'name' cannot be null
+[WARN] [2017-07-19 23:26:57][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]SQL Warning Code: 1048, SQLState: HY000
+[WARN] [2017-07-19 23:26:57][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]Column 'name' cannot be null
+[WARN] [2017-07-19 23:26:57][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]SQL Warning Code: 1105, SQLState: HY000
+[WARN] [2017-07-19 23:26:57][org.hibernate.engine.jdbc.spi.SqlExceptionHelper]Unknown error
+[INFO] [2017-07-19 23:26:57][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:26:54 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:28:12][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 23:28:12][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:28:12 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:28:12][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 23:28:12][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 23:28:13][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 23:28:13][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 23:28:13][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 23:28:13][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 23:28:13][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 23:28:13][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 23:28:13][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, addtime, remcount, name, endtime, starttime, updatetime, sid]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:28:14][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 23:28:14][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@1886991b] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 23:28:15][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:28:12 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:29:15][org.springframework.beans.factory.xml.XmlBeanDefinitionReader]Loading XML bean definitions from URL [file:/D:/Tools/eclipseWorkspace/Sekill/target/classes/spring-hibernate.xml]
+[INFO] [2017-07-19 23:29:16][org.springframework.context.support.GenericApplicationContext]Refreshing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:29:16 CST 2017]; root of context hierarchy
+[INFO] [2017-07-19 23:29:16][org.springframework.beans.factory.config.PropertyPlaceholderConfigurer]Loading properties file from class path resource [config.properties]
+[INFO] [2017-07-19 23:29:16][org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor]JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+[INFO] [2017-07-19 23:29:17][org.hibernate.annotations.common.Version]HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+[INFO] [2017-07-19 23:29:17][org.hibernate.Version]HHH000412: Hibernate Core {4.3.8.Final}
+[INFO] [2017-07-19 23:29:17][org.hibernate.cfg.Environment]HHH000206: hibernate.properties not found
+[INFO] [2017-07-19 23:29:17][org.hibernate.cfg.Environment]HHH000021: Bytecode provider name : javassist
+[INFO] [2017-07-19 23:29:17][org.hibernate.dialect.Dialect]HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+[INFO] [2017-07-19 23:29:17][org.hibernate.engine.transaction.internal.TransactionFactoryInitiator]HHH000399: Using default transaction strategy (direct JDBC transactions)
+[INFO] [2017-07-19 23:29:17][org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory]HHH000397: Using ASTQueryTranslatorFactory
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000228: Running hbm2ddl schema update
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000102: Fetching database metadata
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000396: Updating schema
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.category
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [cname, cid]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.categorysecond
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [csid, csname, cid]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [fk936fcaf21db1fd15]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk936fcaf21db1fd15, primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gattr
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, id, tid]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gattr_ibfk_1, gattr_ibfk_2]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, tid, primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.gimg
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gid, src, id]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [gimg_ibfk_1]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [fk_lo9iqrr1s4mwcs3wp4w93t6t4, primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.goods
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [gprice, gcount, gdesc, gid, gupdatetime, csid, gaddtime, gname, cid]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [goods_ibfk_2, goods_ibfk_1]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [goods_ibfk_2, goods_ibfk_1, primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.seckill
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [totalcount, gid, price, addtime, remcount, name, endtime, starttime, updatetime, sid]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [seckill_ibfk_1]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [gid, primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.template
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [tvalue, csid, tname, id]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: [template_ibfk_1]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [csid, primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000261: Table found: seckill.user
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000037: Columns: [uid, password, code, phone, name, state, addr, checkcode, email, username]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000108: Foreign keys: []
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.TableMetadata]HHH000126: Indexes: [primary]
+[INFO] [2017-07-19 23:29:20][org.hibernate.tool.hbm2ddl.SchemaUpdate]HHH000232: Schema update complete
+[INFO] [2017-07-19 23:29:20][org.springframework.orm.hibernate4.HibernateTransactionManager]Using DataSource [org.apache.commons.dbcp.BasicDataSource@24f870ee] of Hibernate SessionFactory for HibernateTransactionManager
+[INFO] [2017-07-19 23:29:20][org.springframework.context.support.GenericApplicationContext]Closing org.springframework.context.support.GenericApplicationContext@2c34f934: startup date [Wed Jul 19 23:29:16 CST 2017]; root of context hierarchy

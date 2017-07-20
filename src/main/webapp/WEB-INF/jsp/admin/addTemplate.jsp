@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								      <ul class="am-list am-list-static am-list-border">
 									  	<c:forEach items="${templates}" var="item">
 									  		<li>
-										  		<a class="am-badge am-badge-danger">删除</a>
+										  		<a href="admin/categorySecond/removeTemplate.do?id=${item.id }&csid=${item.categorySecond.csid}" class="am-badge am-badge-danger">删除</a>
 										    	<a class="am-badge am-badge-success">编辑</a> 
 										    	${item.tname }--------${item.tvalue }
 									    </li>

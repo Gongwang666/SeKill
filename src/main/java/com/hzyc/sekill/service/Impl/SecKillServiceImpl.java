@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.hzyc.sekill.model.SecKill;
 import com.hzyc.sekill.service.SecKillService;
 import com.hzyc.sekill.utils.PageQueryUtil;
 @Service("secKillService")
@@ -13,6 +14,11 @@ public class SecKillServiceImpl extends BaseServiceImpl implements SecKillServic
 	public Map<String, Object> findSecKillAll(PageQueryUtil page) throws Exception {
 		String hql = "from SecKill";
 		return backPage(hql, page);
+	}
+
+	@Override
+	public void addSecKill(SecKill secKill) {
+		getBaseDao().save(secKill);
 	}
 
 }

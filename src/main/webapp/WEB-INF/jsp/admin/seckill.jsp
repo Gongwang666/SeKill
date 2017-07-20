@@ -20,7 +20,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" href="assets/css/page/typography.css" />
 	<link rel="stylesheet" href="assets/css/page/form.css" />
 	<link rel="stylesheet" href="assets/css/component.css" />
-<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
+	<script type="text/javascript" src="assets/js/jquery-2.1.0.js"></script>
 <script type="text/javascript">
 	//删除一级分类的模态窗口
 	$(function() {
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="am-u-sm-12 am-u-md-6">
 							<div class="am-btn-toolbar">
 								<div class="am-btn-group am-btn-group-xs">
-									<a href="admin/category/addPage.do" class="am-btn am-btn-default">
+									<a href="admin/seckill/addPage.do" class="am-btn am-btn-default">
 										<span class="am-icon-plus"></span> 新增
 									</a>
 									<button type="button" class="am-btn am-btn-default">
@@ -166,7 +166,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td>${item.price }</td>
 												<td>${item.totalcount }</td>
 												<td>${item.remcount }</td>
-												<td>${item.goods.gid }</td>
+												<td>${item.goods.gname }</td>
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
@@ -239,7 +239,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		*跳转到首页
 		*/
 		function toStart(){
-			window.location.href="http://localhost:8888/ssh/admin/category/listAll.do?currentPage=1";
+			window.location.href="http://localhost:8888/ssh/admin/seckill/listAll.do?currentPage=1";
 		}
 			
 		/**
@@ -247,17 +247,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		*/
 		function toEnd(){
 			var totalPage = $('#totalPage').val();
-			window.location.href="http://localhost:8888/ssh/admin/category/listAll.do?currentPage="+totalPage;
+			window.location.href="http://localhost:8888/ssh/admin/seckill/listAll.do?currentPage="+totalPage;
 		}
 		
 		$(function(){
 			$('.page_s').on('click',function(){
 				var count = $(this).attr('lang');
 				if (count <= parseInt($('#totalPage').val()) && count >= 1){
-				window.location.href="http://localhost:8888/ssh/admin/category/listAll.do?currentPage="+count;
+				window.location.href="http://localhost:8888/ssh/admin/seckill/listAll.do?currentPage="+count;
 			}
 			});
 		});
+		
+		
 	</script>
 </body>
 

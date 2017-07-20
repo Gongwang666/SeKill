@@ -2,6 +2,7 @@ package com.hzyc.sekill.service;
 
 import java.util.Map;
 
+import com.hzyc.sekill.model.SecKill;
 import com.hzyc.sekill.utils.PageQueryUtil;
 
 public interface SecKillService extends BaseService {
@@ -10,4 +11,6 @@ public interface SecKillService extends BaseService {
 	 */
 	public Map<String, Object> findSecKillAll(PageQueryUtil page)
 			throws Exception;
+	
+	public void addSecKill(SecKill secKill);
 }
