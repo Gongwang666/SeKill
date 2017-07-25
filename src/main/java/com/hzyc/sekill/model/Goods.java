@@ -43,7 +43,7 @@ public class Goods {
 	private Date gupdatetime;
 	private Category category;
 	private CategorySecond categorySecond;
-	private Set<GoodsImg> goodsImg = new HashSet<GoodsImg>();
+	private List<GoodsImg> goodsImg = new ArrayList<GoodsImg>();
 	private List<GoodsAttr> goodsAttr = new ArrayList<GoodsAttr>();
 	private SecKill seckill;
 	@Id
@@ -109,10 +109,10 @@ public class Goods {
 		this.categorySecond = categorySecond;
 	}
 	@OneToMany(mappedBy="goods",cascade = CascadeType.ALL)
-	public Set<GoodsImg> getGoodsImg() {
+	public List<GoodsImg> getGoodsImg() {
 		return goodsImg;
 	}
-	public void setGoodsImg(Set<GoodsImg> goodsImg) {
+	public void setGoodsImg(List<GoodsImg> goodsImg) {
 		this.goodsImg = goodsImg;
 	}
 	@OneToMany(mappedBy="goods",cascade = CascadeType.ALL)

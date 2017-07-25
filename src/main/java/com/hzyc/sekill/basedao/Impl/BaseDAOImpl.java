@@ -305,6 +305,9 @@ public class BaseDAOImpl implements BaseDAO {
 		}
 	}
 
-	
+	@SuppressWarnings("unchecked")
+	public <T> List<T> quarySql(String sql){
+		return this.getCurrentSession().createSQLQuery(sql).list();
+	}
 	
 }

@@ -136,7 +136,6 @@ public class GoodsController extends BaseController{
 				// 文件上传:
 				file.transferTo(diskFile);
 				String src = "goods_imgs/" + newFileName;
-				System.out.println("----------------"+goods.getGid());
 				GoodsImg goodsImg = new GoodsImg(src,goods);
 				goodsImgService.addImg(goodsImg);
 			}

@@ -13,4 +13,8 @@ public interface SecKillService extends BaseService {
 			throws Exception;
 	
 	public void addSecKill(SecKill secKill);
+	
+	public SecKill findSecKillById(int sid);
+	
+	public void edit(SecKill secKill);
 }

@@ -1,7 +1,5 @@
 package com.hzyc.sekill.controller.admin;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;

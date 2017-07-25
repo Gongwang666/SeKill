@@ -21,4 +21,15 @@ public class SecKillServiceImpl extends BaseServiceImpl implements SecKillServic
 		getBaseDao().save(secKill);
 	}
 
+	@Override
+	public SecKill findSecKillById(int sid) {
+		String hql = "from SecKill where sid = ?";
+		return getBaseDao().getOne(hql, sid);
+	}
+
+	@Override
+	public void edit(SecKill secKill) {
+		getBaseDao().update(secKill);
+	}
+
 }

@@ -30,9 +30,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					relatedTarget : this,
 					onConfirm : function(options) {
 						var $link = $(this.relatedTarget);
-						var cid = $link.data("id");
+						var sid = $link.data("sid");
 						var page = "${pageBean.page}";
-						location.href ="http://localhost:8888/ssh/admin/category/remove.do?cid="+cid;
+						location.href ="http://localhost:8888/ssh/admin/seckill/remove.do?sid="+sid;
 						},
 						// closeOnConfirm: false,
 						onCancel : function() {
@@ -170,9 +170,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												<td>
 													<div class="am-btn-toolbar">
 														<div class="am-btn-group am-btn-group-xs">
-															<a class="am-btn am-btn-primary" href="admin/category/editPage.do?cid=${item.sid }" ><span class="am-icon-pencil-square-o"></span> 编辑</a>
+															<a class="am-btn am-btn-primary" href="admin/seckill/editPage.do?sid=${item.sid }" ><span class="am-icon-pencil-square-o"></span> 编辑</a>
 															<button type="button" class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only btn-del"
-																 data-id="${item.sid }">
+																 data-sid="${item.sid }">
 																<span class="am-icon-trash-o"></span> 删除
 															</button>
 														</div>
