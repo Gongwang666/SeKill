@@ -17,6 +17,7 @@ public class Constrants {
 
 	public final static String USER_KEY = "system_user";// 系统后台用户信息session存储KEY
 	public final static String CUS_KEY = "sysCustomer";//系统后台客户信息session存储KEY
+	public final static String LOGIN_USER = "loginUser";//用户登录信息session存储KEY
 
 	public final static String SYS_DEFAULT_PWD = "12345678"; // 系统初始化重置默认密码
 

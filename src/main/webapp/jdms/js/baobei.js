@@ -227,7 +227,7 @@ $(function(){
 	$('#stock-address').hover(function(){
 		var xhr = new XMLHttpRequest();
         var method = "get";
-        var url = 'city.json';
+        var url = 'jdms/city.json';
         var asy = true;
         xhr.onreadystatechange = function(){
             if(xhr.readyState == 4){//判断当前到哪一步了，等到第4步

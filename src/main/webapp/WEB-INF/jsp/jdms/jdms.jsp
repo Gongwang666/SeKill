@@ -207,7 +207,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="fore7"><div class="dt"><a href="###">我的订单</a></div></li>
 				<li class="bar"></li>
 				<li class="mlogin">
-					<a href="###" class="hello dt">你好，请登录</a><a href="###" class="login dt">免费注册</a>
+					<c:choose>
+					<c:when test="${empty sessionScope.loginUser}">
+						<a href="user/toLoginPage.do" >你好，请登录</a>&nbsp;&nbsp;<a href="###" class="link-regist style-red">免费注册</a>
+					</c:when>
+					<c:otherwise>
+						<span>${sessionScope.loginUser.userName}</span>
+					</c:otherwise>
+				</c:choose>
 				</li>
 				<li id="ttbar-home">
 					<i class="homeicon"></i>
@@ -579,7 +586,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										<i class="seckill_mod_goods_progress_inner"><b class="seckill_mod_goods_progress_completed" style="width:26%"></b></i>
 									</span>
 								</span>
-								<a href="###" class="seckill_mod_goods_info_i">立即抢购</a>
+								<a href="ms/show/showGoods.do?gid=${item.goods.gid}" class="seckill_mod_goods_info_i">立即抢购</a>
 							</div>
 						</li>
 					</c:forEach>	

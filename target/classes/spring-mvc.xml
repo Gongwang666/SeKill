@@ -28,6 +28,17 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	
+	<bean id="loginInterceptor" class="com.hzyc.sekill.interceptor.LoginInterceptor" />
+	<mvc:interceptors>
+		<!-- 登录拦截器 -->
+		<mvc:interceptor>
+			<mvc:mapping path="/ms/show/addToCart.do"/>
+			<mvc:mapping path="/ms/show/toCartPage.do"/>
+			<!-- 用户管理逻辑免拦截白名单 -->
+			<!-- <mvc:exclude-mapping path="/system/user/*login*" /> -->
+			<ref bean="loginInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 	<!-- 配置文件上传，如果没有使用文件上传可以不用配置，当然如果不配，那么配置文件中也不必引入上传组件包 -->
 	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<!-- 默认编码 -->

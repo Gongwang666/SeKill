@@ -70,7 +70,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			<ul class="fr">
 				<li class="fore1" id="ttbar-login">
-					<a  class="link-login">你好，请登录</a>&nbsp;&nbsp;<a href="###" class="link-regist style-red">免费注册</a>
+				<c:choose>
+					<c:when test="${empty sessionScope.loginUser}">
+						<a href="user/toLoginPage.do" >你好，请登录</a>&nbsp;&nbsp;<a href="###" class="link-regist style-red">免费注册</a>
+					</c:when>
+					<c:otherwise>
+						<span>${sessionScope.loginUser.userName}</span>
+					</c:otherwise>
+				</c:choose>
 				</li>
 				<li class="spacer"></li>
 				<li class="fore2">
@@ -401,7 +408,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<i class="ci-left"></i>
 				<i class="ci-right">&gt;</i>
 				<i class="ci-count" id="shopping-amount">0</i>
-				<a href="#">购物车</a>
+				<a href="ms/show/toCartPage.do">购物车</a>
 			</div>
 			<div class="dorpdown-layer">
 				<div class="spacer"></div>
@@ -972,11 +979,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="choose-amount">
 							<div class="wrap-input">
 								<input class="text buy-num" id="buy-num" value="1" data-max="199"/>
-								<a class="btn-reduce disabled" href="###" data-disabled="1">-</a>
-								<a class="btn-add" href="###" data-disabled="1">+</a>
+								<a class="btn-reduce disabled"  data-disabled="1">-</a>
+								<a class="btn-add"  data-disabled="1">+</a>
 							</div>
 						</div>
-						<a href="###" id="InitCartUrl" class="btn-special1 btn-lg">加入购物车</a>
+						<a id="InitCartUrl" class="btn-special1 btn-lg">加入购物车</a>
 					</div>
 					<div id="summary-tips" class="summary-tips">
 						<div class="dt">温馨提示</div>
@@ -2661,16 +2668,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<div class="msg-error hide"><b></b></div>
 					</div>
 					<div class="mc">
+						<form action="user/login.do" name="user" method="post">
 						<div class="mcform">
 							<div class="mcitem item-fore1">
 									<label for="loginname" class="login-label name-label"></label>
-									<input id="loginname" type="text" class="itxt" name="loginname" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
+									<input id="userName" type="text" class="itxt" name="userName" tabindex="1" autocomplete="off" placeholder="邮箱/用户名/已验证手机">
 									<span class="clear-btn"></span>
 							</div>
 							<div class="mcitem item-fore2">
 									<label for="loginname" class="login-label pwd-label"></label>
 									<!-- <label id="sloginpwd"></label> -->
-									<input id="loginname" type="password" class="itxt itxt-error" name="nloginpwd" tabindex="2" autocomplete="off" placeholder="密码">
+									<input id="passWord" type="password" class="itxt itxt-error" name="passWord" tabindex="2" autocomplete="off" placeholder="密码">
 									<span class="clear-btn"></span>
 									<span class="capslock"><b></b>大小写锁定已打开</span>
 							</div>
@@ -2689,10 +2697,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							</div>
 							<div class="mcitem item-fore5" style="visibility: visible;">
 								<div class="login-btn">
-									<a href="###" class="btn-img btn-entry" id="loginsubmit">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+									<a  class="btn-img btn-entry" id="loginsubmit">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
 								</div>
 							</div>
-
+						</form>
 						<div class="coagent" id="kbCoagent">
 							<ul>
 								<li>
@@ -2731,5 +2739,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<!-- 遮罩层 -->
 	<div class="ui-mask"></div>
+	<script type="text/javascript">
+		/* $(".login-btn").on("click",function(){
+			var userName = $("#userName").val();
+			var passWord = $("#passWord").val();
+			$.ajax({
+			  	url:"user/login.do?userName="+userName+"&passWord="+passWord,
+				type:"post",
+				dataType:"json",
+				success:function(data){
+					var html = "<span>"+data.userName+"</span>";
+					$("#ttbar-login").html(html);
+					$('.ui-dialog').hide();
+				    $('.ui-mask').hide();
+				}
+			});
+		}); */
+		
+		$("#InitCartUrl").on("click",function(){
+			var gid = '${goods.gid}';
+			var count = $("#buy-num").val();
+			$.ajax({
+			  	url:"ms/show/addToCart.do?gid="+gid+"&count="+count,
+				type:"post",
+				dataType:"json",
+				success:function(data){
+					alert(data.message);
+				}
+			});
+		});
+	</script>
 </body> 
 </html>

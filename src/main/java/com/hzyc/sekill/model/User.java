@@ -1,6 +1,8 @@
 package com.hzyc.sekill.model;
 
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +21,9 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name="user")
-public class User {
+public class User implements Serializable{
+	
+	private static final long serialVersionUID = -6033159613696917066L;
 	private int uid;
 	private String userName;
 	private String passWord;
